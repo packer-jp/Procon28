@@ -1,5 +1,3 @@
-package solver;
-
 import java.awt.Point;
 
 class Direction {

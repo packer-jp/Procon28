@@ -1,5 +1,3 @@
-package solver;
-
 class Identifier {
 
     int piece;

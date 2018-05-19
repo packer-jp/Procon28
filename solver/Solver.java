@@ -1,5 +1,3 @@
-package solver;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -25,25 +23,14 @@ public class Solver {
     }
 
     void compute() {
-        String shape = "";
-        try {
-            File file = new File("../datas/shape2.txt");
-            FileReader fr = new FileReader(file);
-            BufferedReader br = new BufferedReader(fr);
-            while (br.ready()) {
-                shape += (br.readLine() + " ");
-            }
-            br.close();
-        } catch (FileNotFoundException fe) {
-        } catch (IOException ie) {
-        }
-        Scanner scanner = new Scanner(shape);
+        Scanner scanner = new Scanner(System.in);
         scanner.useDelimiter("[^-\\d]+");
-
+        /*
         boolean[] isUnlockeds = new boolean[50];
         for (int i = 0; i < 50; i++) {
             isUnlockeds[i] = scanner.nextInt() == 0 ? true : false;
         }
+        */
         int nQRs = scanner.nextInt();
         for (int i = 0; i < nQRs; i++) {
             int ncurrentPieces = scanner.nextInt();
@@ -58,7 +45,7 @@ public class Solver {
                     xpoints[k] = scanner.nextInt();
                     ypoints[k] = scanner.nextInt();
                 }
-                pieces.add(new PuzzlePiece(xpoints, ypoints, npoints, isUnlockeds[pieces.size()]));
+                pieces.add(new PuzzlePiece(xpoints, ypoints, npoints, true));
             }
         }
 
@@ -94,21 +81,6 @@ public class Solver {
             frame.add(currentLimit);
         }
         Node start = new Node(frame, new PolygonEX[npieces]);
-
-        String position = "";
-        try {
-            File file = new File("../datas/position1.txt");
-            FileReader fr = new FileReader(file);
-            BufferedReader br = new BufferedReader(fr);
-            while (br.ready()) {
-                position += (br.readLine() + " ");
-            }
-            br.close();
-        } catch (FileNotFoundException fe) {
-        } catch (IOException ie) {
-        }
-        scanner = new Scanner(position);
-        scanner.useDelimiter("[^-\\d]+");
         
         nQRs = scanner.nextInt();
         for (int i = 0; i < nQRs; i++) {
@@ -146,22 +118,10 @@ public class Solver {
 
         Node solution = getSolution(start);
 
-        try{
-            File file = new File("../datas/position2.txt");
-            PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(file)));
-            pw.print(solution);
-            pw.close();
-        }catch(IOException ex){        
-        }
-        
-        try{
-            Runtime.getRuntime().exec("java -jar ../Display/dist/Display.jar");
-        }catch(IOException ex){        
-        }
+        System.out.println(solution);
     }
 
     Node getSolution(Node node) {
-        System.out.println(node);
         if (node.npieces == npieces) {
             return node;
         }

@@ -1,5 +1,3 @@
-package solver;
-
 class VectorPolygon {
 
     int[] xvectors;
