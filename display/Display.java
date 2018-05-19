@@ -1,5 +1,3 @@
-package display;
-
 import java.awt.Polygon;
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,19 +14,7 @@ public class Display {
     }
 
     void compute() {
-        String position = "";
-        try {
-            File file = new File("../datas/position2.txt");
-            FileReader fr = new FileReader(file);
-            BufferedReader br = new BufferedReader(fr);
-            while (br.ready()) {
-                position += (br.readLine() + " ");
-            }
-            br.close();
-        } catch (FileNotFoundException fe) {
-        } catch (IOException ie) {
-        }
-        Scanner scanner = new Scanner(position);
+        Scanner scanner = new Scanner(System.in);
         scanner.useDelimiter("[^-\\d]+");
         int[] xpoints, ypoints;
         int npoints;
