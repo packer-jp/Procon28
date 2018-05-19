@@ -1,12 +1,11 @@
-# 第28高専プロコン競技部門 パズルソルバ
+# 第28回高専プロコン競技部門 パズルソルバ
 
 ## ルール
 - [募集要項](http://www.procon.gr.jp/wp-content/uploads//2017/04/8db30280f6638520be40ad86b4bf1b37.pdf)
 - [FAQ](http://www.procon.gr.jp/wp-content/uploads//2017/05/kyogiFAQ1.pdf)
 
 ## 使い方
-### Solver
-- 入力（例: sample.txt）
+### Solver入力（例: sample.txt）
 ```
 形状情報のQRの数
 形状情報1
@@ -24,13 +23,12 @@
 .
 配置情報m
 ```
-- 出力
+### Solver出力
 ```
 1 配置情報
 ```
 
-### Display
-- 入力
+### Display入力
 ```
 配置情報のQRの数
 配置情報1
@@ -40,7 +38,7 @@
 .
 配置情報m
 ```
-- GUIで出力
+### Display出力: GUI
 
 ## 結果
 - 1回戦 1位  
